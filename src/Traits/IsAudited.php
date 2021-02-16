@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Rrvwmrrr\Auditor\Audit;
 
 trait IsAudited {
-    protected $audit = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
+    protected static $audit = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
     
     public static function bootIsAudited() {
         foreach(static::$audit as $event) {
