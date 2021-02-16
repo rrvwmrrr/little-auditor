@@ -29,7 +29,7 @@ trait IsAudited {
                     'auditable_id' => $model->id ?? 0,
                     'auditable_type' => get_class($model),
                     'event' => ucfirst($event),
-                    'changes' => $model->toJson(),
+                    'state' => $model->toJson(),
                 ];
     
                 $user = Auth::user();

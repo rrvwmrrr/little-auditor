@@ -8,7 +8,7 @@ class Audit extends Model
 {
     protected $guarded = [];
 
-    public function auditable() {
+    public function auditable() {  
         return $this->morphTo();
     }
 }

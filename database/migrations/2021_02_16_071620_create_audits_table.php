@@ -18,7 +18,7 @@ class CreateAuditsTable extends Migration
             $table->string('auditable_type');
             $table->foreignId('auditable_id');
             $table->string('event');
-            $table->json('changes');
+            $table->json('state');
             $table->foreignId('auditor_id')->nullable();
             $table->string('auditor_type')->nullable();
             $table->timestamps();
