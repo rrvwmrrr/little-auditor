@@ -13,7 +13,7 @@ trait IsAudited {
     public static function bootIsAudited() {
         $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
         
-        $classAudits = getAudits(static::class);
+        $classAudits = static::getAudits(static::class);
         
         foreach(static::$audits as $event) {
             if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
@@ -43,7 +43,7 @@ trait IsAudited {
         return $this->morphTo(config('little-auditor.auditor_model'), 'auditor');           
     }
 
-    private function getAudits($class) {
+    private static function getAudits($class) {
         $reflectedClass = new ReflectionClass($class);
         dd($reflectedClass);
     }
