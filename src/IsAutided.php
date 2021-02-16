@@ -2,7 +2,7 @@
 
 namespace Rrvwmrrr\Auditor;
 
-trait isAudited {
+trait IsAudited {
     public static function bootIsAudited() {
         static::creating(function($model) {
 
