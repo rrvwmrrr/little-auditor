@@ -17,11 +17,11 @@ trait IsAudited {
                 continue;
             }
             
-            static::{$event}(function($model) {
+            static::{$event}(function($model) use ($event) {
                 $auditData = [
                     'auditable_id' => $model->id ?? 0,
                     'auditable_type' => get_class($model),
-                    'event' => 'Create',
+                    'event' => $event,
                     'changes' => $model->toJson(),
                 ];
     
