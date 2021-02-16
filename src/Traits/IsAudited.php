@@ -13,6 +13,7 @@ trait IsAudited {
     public static function bootIsAudited() {
         $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
         
+        $classAudits = getAudits($class);
         
         foreach(static::$audits as $event) {
             if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
