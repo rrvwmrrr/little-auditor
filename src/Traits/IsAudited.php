@@ -5,6 +5,7 @@ namespace Rrvwmrrr\Auditor\Traits;
 use Illuminate\Support\Facades\Auth;
 use ReflectionClass;
 use Rrvwmrrr\Auditor\Audit;
+use Rrvwmrrr\Auditor\Exceptions\AuditException;
 
 trait IsAudited {
     protected static $audits = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
@@ -16,6 +17,9 @@ trait IsAudited {
         $classAudits = static::getAudits(static::class);
         
         foreach($classAudits as $event) {
+            if (! in_array($event, static::$audits)) {
+                throw AuditException::eventNotCovered($event);
+            }
             if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
                 continue;
             }
