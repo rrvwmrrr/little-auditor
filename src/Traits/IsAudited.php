@@ -21,7 +21,7 @@ trait IsAudited {
                 $auditData = [
                     'auditable_id' => $model->id ?? 0,
                     'auditable_type' => get_class($model),
-                    'event' => $event,
+                    'event' => ucfirst($event),
                     'changes' => $model->toJson(),
                 ];
     
