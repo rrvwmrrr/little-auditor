@@ -15,7 +15,8 @@ class CreateAuditsTable extends Migration
     {
         Schema::create('audits', function (Blueprint $table) {
             $table->id();
-            $table->string('model');
+            $table->string('auditable_type');
+            $table->foreignId('auditable_id');
             $table->string('event');
             $table->json('changes');
             $table->foreignId('auditorable_id')->nullable();
