@@ -7,8 +7,11 @@ use Rrvwmrrr\Auditor\Audit;
 
 trait IsAudited {
     protected static $audit = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
-    
+    protected static $softDeleteEvents = ['restoring', 'restored'];
+
     public static function bootIsAudited() {
+        $usingSoftDeletes = in_array('SoftDeleted', class_uses(static::class));
+
         foreach(static::$audit as $event) {
             static::{$event}(function($model) {
                 $auditData = [
