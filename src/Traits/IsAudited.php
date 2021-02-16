@@ -1,6 +1,6 @@
 <?php
 
-namespace Rrvwmrrr\Auditor;
+namespace Rrvwmrrr\Auditor\Traits;
 
 trait IsAudited {
     public static function bootIsAudited() {
