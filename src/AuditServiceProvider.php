@@ -24,5 +24,11 @@ class AuditServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->publishes([
+            __DIR__.'/../config/little-auditor.php' => config_path('little-auditor.php'),
+        ]);
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/little-auditor.php', 'little-auditor'
+        );
     }
 }
