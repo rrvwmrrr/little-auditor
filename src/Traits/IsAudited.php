@@ -3,16 +3,18 @@
 namespace Rrvwmrrr\Auditor\Traits;
 
 use Illuminate\Support\Facades\Auth;
+use ReflectionClass;
 use Rrvwmrrr\Auditor\Audit;
 
 trait IsAudited {
-    protected static $audit = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
+    protected static $audits = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
     protected static $softDeleteEvents = ['restoring', 'restored'];
 
     public static function bootIsAudited() {
         $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
-
-        foreach(static::$audit as $event) {
+        
+        
+        foreach(static::$audits as $event) {
             if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
                 continue;
             }
@@ -38,5 +40,10 @@ trait IsAudited {
 
     public function auditor() {
         return $this->morphTo(config('little-auditor.auditor_model'), 'auditor');           
+    }
+
+    private function getAudits($class) {
+        $reflectedClass = new ReflectionClass($class);
+        dd($reflectedClass)
     }
 }
