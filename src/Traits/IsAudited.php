@@ -8,4 +8,8 @@ trait IsAudited {
             dd($model);
         });
     }
+
+    public function auditor() {
+        return $this->morphTo();           
+    }
 }
