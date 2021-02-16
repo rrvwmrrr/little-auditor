@@ -7,7 +7,7 @@ use Rrvwmrrr\Auditor\Audit;
 
 trait IsAudited {
     public static function bootIsAudited() {
-        dd(parent::class);
+        dd(class_parents(parent::class, true));
         static::creating(function($model) {
             $auditData = [
                 'auditable_id' => $model->id ?? 0,
