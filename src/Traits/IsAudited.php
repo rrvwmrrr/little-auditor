@@ -17,7 +17,7 @@ trait IsAudited {
 
             $user = optional(Auth::user());
             if ($user) {
-                $auditData['auditor_id'] = $user;
+                $auditData['auditor_id'] = $user->id;
                 $auditData['auditor_type'] = config('little-auditor.auditor_model');
             }
 
