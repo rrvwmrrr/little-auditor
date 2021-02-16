@@ -52,6 +52,6 @@ trait IsAudited {
 
         $property = $properties->first();
         $property->setAccessible(true);
-        return $property->getValue(new ${$class});
+        return $property->getValue(new $class);
     }
 }
