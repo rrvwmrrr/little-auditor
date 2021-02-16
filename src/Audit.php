@@ -3,6 +3,7 @@
 namespace Rrvwmrrr\Auditor;
 
 use Illuminate\Database\Eloquent\Model;
+use Rrvwmrrr\Auditor\Auditor;
 
 class Audit extends Model
 {
@@ -12,7 +13,9 @@ class Audit extends Model
         return $this->morphTo();
     }
 
-    public function user() {
-        return $this->belongsTo('user');
+    public function auditor() {
+        return $this->belongsTo(Auditor::$auditorModel)->withDefault([
+            'name' => 'Non auditable user',
+        ]);
     }
 }

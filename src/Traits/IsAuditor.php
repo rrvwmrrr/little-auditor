@@ -12,4 +12,8 @@ trait IsAuditor {
     public function audits() {
         return $this->morphMany(Audit::class, 'auditorable');
     }
+
+    public function type() {
+        return static::class;
+    }
 }

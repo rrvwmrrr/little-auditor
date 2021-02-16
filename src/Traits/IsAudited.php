@@ -35,7 +35,7 @@ trait IsAudited {
                 $user = Auth::user();
                 if ($user) {
                     $auditData['auditor_id'] = $user->id;
-                    $auditData['auditor_type'] = config('little-auditor.auditor_model');
+                    $auditData['auditor_type'] = get_class($user);
                 }
     
                 Audit::create($auditData);
@@ -43,8 +43,8 @@ trait IsAudited {
         }
     }
 
-    public function auditor() {
-        return $this->morphTo(config('little-auditor.auditor_model'), 'auditor');           
+    public function audits() {
+        return $this->morphMany(Audit::class, 'auditable');           
     }
 
     private static function getAudits($class) {

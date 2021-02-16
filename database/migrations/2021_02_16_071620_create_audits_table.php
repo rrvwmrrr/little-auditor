@@ -19,7 +19,7 @@ class CreateAuditsTable extends Migration
             $table->foreignId('auditable_id');
             $table->string('event');
             $table->json('state');
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('auditor_id')->nullable();
             $table->timestamps();
         });
     }
