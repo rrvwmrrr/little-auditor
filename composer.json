@@ -1,0 +1,17 @@
+{
+    "name": "rrvwmrrr/little-auditor",
+    "description": "Mimimal auditing package for Laravel",
+    "authors": [
+        {
+            "name": "James Sessford",
+            "email": "hello@jamessessford.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Rrvwmrrr\\Auditor\\": "src/"
+        }
+    }
+}
