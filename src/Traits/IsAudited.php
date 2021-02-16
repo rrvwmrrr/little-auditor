@@ -10,9 +10,13 @@ trait IsAudited {
     protected static $softDeleteEvents = ['restoring', 'restored'];
 
     public static function bootIsAudited() {
-        $usingSoftDeletes = in_array('SoftDeleted', class_uses(static::class));
+        $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
 
         foreach(static::$audit as $event) {
+            if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
+                continue;
+            }
+            
             static::{$event}(function($model) {
                 $auditData = [
                     'auditable_id' => $model->id ?? 0,
