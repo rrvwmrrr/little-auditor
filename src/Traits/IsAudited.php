@@ -45,6 +45,7 @@ trait IsAudited {
 
     private static function getAudits($class) {
         $reflectedClass = new ReflectionClass($class);
-        dd($reflectedClass);
+        $properties = $reflectedClass->getProperties();
+        dd($properties);
     }
 }
