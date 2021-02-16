@@ -15,7 +15,7 @@ trait IsAudited {
         
         $classAudits = static::getAudits(static::class);
         
-        foreach(static::$audits as $event) {
+        foreach($classAudits as $event) {
             if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
                 continue;
             }
@@ -46,6 +46,11 @@ trait IsAudited {
     private static function getAudits($class) {
         $reflectedClass = new ReflectionClass($class);
         $properties = collect($reflectedClass->getProperties())->where('name', 'audit');
-        dd($properties);
+        if ($properties->count() == 0) {
+            return static::$audits;
+        }
+
+        $property = $properties->first();
+        return $property->getValue();
     }
 }
