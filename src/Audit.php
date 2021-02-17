@@ -8,12 +8,12 @@ class Audit extends Model
 {
     protected $guarded = [];
 
-    public function auditable()
+    public function auditable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
         return $this->morphTo();
     }
 
-    public function auditor()
+    public function auditor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Auditor::$auditorModel)->withDefault([
             'name' => 'Non auditable user',

@@ -4,5 +4,5 @@ namespace Rrvwmrrr\Auditor;
 
 class Auditor
 {
-    public static $auditorModel = "App\\Models\\User";
+    public static string $auditorModel = "App\\Models\\User";
 }
