@@ -7,16 +7,18 @@ use ReflectionClass;
 use Rrvwmrrr\Auditor\Audit;
 use Rrvwmrrr\Auditor\Exceptions\AuditException;
 
-trait IsAudited {
+trait IsAudited
+{
     protected static $audits = ['creating', 'created', 'updating', 'updated', 'saving', 'saved', 'deleting', 'deleted', 'restoring', 'restored', 'replicating'];
     protected static $softDeleteEvents = ['restoring', 'restored'];
 
-    public static function bootIsAudited() {
+    public static function bootIsAudited()
+    {
         $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
         
         $classAudits = static::getAudits(static::class);
         
-        foreach($classAudits as $event) {
+        foreach ($classAudits as $event) {
             if (! in_array($event, static::$audits)) {
                 throw AuditException::eventNotCovered($event);
             }
@@ -24,7 +26,7 @@ trait IsAudited {
                 continue;
             }
             
-            static::{$event}(function($model) use ($event) {
+            static::{$event}(function ($model) use ($event) {
                 $auditData = [
                     'auditable_id' => $model->id ?? 0,
                     'auditable_type' => get_class($model),
@@ -43,11 +45,13 @@ trait IsAudited {
         }
     }
 
-    public function audits() {
-        return $this->morphMany(Audit::class, 'auditable');           
+    public function audits()
+    {
+        return $this->morphMany(Audit::class, 'auditable');
     }
 
-    private static function getAudits($class) {
+    private static function getAudits($class)
+    {
         $reflectedClass = new ReflectionClass($class);
         $properties = collect($reflectedClass->getProperties())->where('name', 'audit');
         if ($properties->count() == 0) {
@@ -56,6 +60,7 @@ trait IsAudited {
 
         $property = $properties->first();
         $property->setAccessible(true);
+
         return $property->getValue(new $class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Rrvwmrrr\Auditor;
 
-class Auditor {
+class Auditor
+{
     public static $auditorModel = "App\\Models\\User";
 }
