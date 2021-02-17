@@ -1,2 +1,6 @@
-/vendor/
-/build/
+.php_cs.cache
+.phpunit.result.cache
+build
+coverage
+docs
+vendor
