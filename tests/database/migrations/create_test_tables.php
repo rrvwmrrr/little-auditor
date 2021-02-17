@@ -30,6 +30,12 @@ class CreateTestTables extends Migration
             $table->string('password');
             $table->timestamps();
         });
+
+        Schema::create('auditables', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -40,5 +46,7 @@ class CreateTestTables extends Migration
     public function down()
     {
         Schema::dropIfExists('audits');
+        Schema::dropIfExists('auditors');
+        Schema::dropIfExists('auditables');
     }
 }

@@ -4,13 +4,13 @@ namespace Rrvwmrrr\Auditor\Tests\Support\Models;
 
 use Database\Factories\AuditorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Rrvwmrrr\Auditor\Traits\IsAuditor;
+use Illuminate\Database\Eloquent\Model;
+use Rrvwmrrr\Auditor\Traits\IsAudited;
 
-class Auditor extends Authenticatable
+class Auditable extends Model
 {
     use HasFactory;
-    use IsAuditor;
+    use IsAudited;
 
     /**
      * The attributes that are mass assignable.
@@ -18,16 +18,7 @@ class Auditor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
+        'name',
     ];
 
     /**

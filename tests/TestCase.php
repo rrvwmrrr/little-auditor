@@ -2,6 +2,7 @@
 
 namespace Rrvwmrrr\Auditor\Tests;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Rrvwmrrr\Auditor\AuditServiceProvider;
 use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
@@ -11,6 +12,10 @@ class TestCase extends Orchestra
     public function setUp(): void
     {
         parent::setUp();
+
+        Factory::guessFactoryNamesUsing(
+            fn (string $modelName) => 'Database\\Factories\\'.class_basename($modelName).'Factory'
+        );
     }
 
     protected function getPackageProviders($app)

@@ -15,14 +15,13 @@ trait IsAudited
     public static function bootIsAudited()
     {
         $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
-        
         $classAudits = static::getAudits(static::class);
         
         foreach ($classAudits as $event) {
             if (! in_array($event, static::$audits)) {
                 throw AuditException::eventNotCovered($event);
             }
-            if ($usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
+            if (! $usingSoftDeletes && in_array($event, static::$softDeleteEvents)) {
                 continue;
             }
             
@@ -37,7 +36,6 @@ trait IsAudited
                 $user = Auth::user();
                 if ($user) {
                     $auditData['auditor_id'] = $user->id;
-                    $auditData['auditor_type'] = get_class($user);
                 }
     
                 Audit::create($auditData);

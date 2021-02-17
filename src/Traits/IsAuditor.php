@@ -8,6 +8,6 @@ trait IsAuditor
 {
     public function audits()
     {
-        return $this->morphMany(Audit::class, 'auditorable');
+        return $this->hasMany(Audit::class);
     }
 }

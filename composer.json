@@ -25,7 +25,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Rrvwmrrr\\Auditor\\Tests\\": "tests"
+            "Rrvwmrrr\\Auditor\\Tests\\": "tests",
+            "Database\\Factories\\": "tests/database/factories"
         }
     },
     "scripts": {
