@@ -5,10 +5,10 @@ namespace Rrvwmrrr\Auditor\Tests\Feature;
 use Illuminate\Support\Facades\Auth;
 use Rrvwmrrr\Auditor\Audit;
 use Rrvwmrrr\Auditor\Auditor as AuditorConfig;
-use Rrvwmrrr\Auditor\Tests\TestCase;
-use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
 use Rrvwmrrr\Auditor\Tests\Support\Models\Auditable;
+use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
 use Rrvwmrrr\Auditor\Tests\Support\Models\DifferentAuditor;
+use Rrvwmrrr\Auditor\Tests\TestCase;
 
 class AuditorTest extends TestCase
 {

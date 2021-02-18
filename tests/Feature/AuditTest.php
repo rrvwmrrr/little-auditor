@@ -2,13 +2,9 @@
 
 namespace Rrvwmrrr\Auditor\Tests\Feature;
 
-use Illuminate\Support\Facades\Auth;
-use Rrvwmrrr\Auditor\Audit;
-use Rrvwmrrr\Auditor\Auditor as AuditorConfig;
-use Rrvwmrrr\Auditor\Tests\TestCase;
-use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
 use Rrvwmrrr\Auditor\Tests\Support\Models\Auditable;
-use Rrvwmrrr\Auditor\Tests\Support\Models\DifferentAuditor;
+use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
+use Rrvwmrrr\Auditor\Tests\TestCase;
 
 class AuditTest extends TestCase
 {
@@ -42,7 +38,6 @@ class AuditTest extends TestCase
         $retreivedAuditor = $audit->auditor;
 
         $this->assertEquals($retreivedAuditor->name, "Non auditable user");
-
     }
 
     /** @test */
@@ -62,6 +57,5 @@ class AuditTest extends TestCase
 
         $this->assertInstanceOf(Auditor::class, $retreivedAuditor);
         $this->assertEquals($auditor->name, $retreivedAuditor->name);
-
     }
 }

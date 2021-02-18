@@ -4,8 +4,8 @@ namespace Rrvwmrrr\Auditor\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Rrvwmrrr\Auditor\AuditServiceProvider;
 use Rrvwmrrr\Auditor\Auditor;
+use Rrvwmrrr\Auditor\AuditServiceProvider;
 use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor as AuditorModel;
 
 class TestCase extends Orchestra

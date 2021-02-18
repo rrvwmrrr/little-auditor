@@ -2,7 +2,6 @@
 
 namespace Rrvwmrrr\Auditor\Tests\Support\Models;
 
-use Database\Factories\AuditorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Rrvwmrrr\Auditor\Traits\IsAuditor;

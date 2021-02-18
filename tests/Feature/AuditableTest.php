@@ -4,11 +4,11 @@ namespace Rrvwmrrr\Auditor\Tests\Feature;
 
 use Rrvwmrrr\Auditor\Audit;
 use Rrvwmrrr\Auditor\Exceptions\AuditException;
-use Rrvwmrrr\Auditor\Tests\TestCase;
-use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
 use Rrvwmrrr\Auditor\Tests\Support\Models\Auditable;
+use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
 use Rrvwmrrr\Auditor\Tests\Support\Models\FailingAuditable;
 use Rrvwmrrr\Auditor\Tests\Support\Models\NotAuditable;
+use Rrvwmrrr\Auditor\Tests\TestCase;
 
 class AuditableTest extends TestCase
 {

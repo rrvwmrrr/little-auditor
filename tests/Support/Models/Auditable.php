@@ -2,7 +2,6 @@
 
 namespace Rrvwmrrr\Auditor\Tests\Support\Models;
 
-use Database\Factories\AuditorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Rrvwmrrr\Auditor\Traits\IsAudited;
