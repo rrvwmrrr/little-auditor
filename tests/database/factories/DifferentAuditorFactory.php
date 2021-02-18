@@ -3,16 +3,16 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
+use Rrvwmrrr\Auditor\Tests\Support\Models\DifferentAuditor;
 
-class AuditorFactory extends Factory
+class DifferentAuditorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Auditor::class;
+    protected $model = DifferentAuditor::class;
 
     /**
      * Define the model's default state.

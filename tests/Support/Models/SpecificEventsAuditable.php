@@ -2,19 +2,26 @@
 
 namespace Rrvwmrrr\Auditor\Tests\Support\Models;
 
-use Database\Factories\AuditorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Rrvwmrrr\Auditor\Traits\IsAudited;
 
-class AuditableSoftDeletes extends Model
+class SpecificEventsAuditable extends Model
 {
     use HasFactory;
     use IsAudited;
-    use SoftDeletes;
 
     protected $table = "auditables";
+
+    /**
+     * The model events to listen for
+     *
+     * @var array
+     */
+    protected $audit = [
+        'saved',
+    ];
+
 
     /**
      * The attributes that are mass assignable.

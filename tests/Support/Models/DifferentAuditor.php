@@ -2,19 +2,17 @@
 
 namespace Rrvwmrrr\Auditor\Tests\Support\Models;
 
-use Database\Factories\AuditorFactory;
+use Database\Factories\DifferentAuditorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Rrvwmrrr\Auditor\Traits\IsAudited;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Rrvwmrrr\Auditor\Traits\IsAuditor;
 
-class AuditableSoftDeletes extends Model
+class DifferentAuditor extends Authenticatable
 {
     use HasFactory;
-    use IsAudited;
-    use SoftDeletes;
+    use IsAuditor;
 
-    protected $table = "auditables";
+    protected $table = 'auditors';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +20,16 @@ class AuditableSoftDeletes extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
     ];
 
     /**

@@ -3,16 +3,16 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Rrvwmrrr\Auditor\Tests\Support\Models\Auditor;
+use Rrvwmrrr\Auditor\Tests\Support\Models\SpecificEventsAuditable;
 
-class AuditorFactory extends Factory
+class SpecificEventsAuditableFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Auditor::class;
+    protected $model = SpecificEventsAuditable::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +23,6 @@ class AuditorFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         ];
     }
 }

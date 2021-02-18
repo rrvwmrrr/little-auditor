@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Rrvwmrrr\Auditor\Audit;
-use Rrvwmrrr\Auditor\Tests\Support\Models\Auditable;
 
 class AuditFactory extends Factory
 {
