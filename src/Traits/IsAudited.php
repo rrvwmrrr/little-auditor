@@ -2,6 +2,8 @@
 
 namespace Rrvwmrrr\Auditor\Traits;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use ReflectionClass;
 use Rrvwmrrr\Auditor\Audit;
@@ -14,7 +16,7 @@ trait IsAudited
 
     public static function bootIsAudited()
     {
-        $usingSoftDeletes = in_array('SoftDeletes', class_uses(static::class));
+        $usingSoftDeletes = Arr::exists(class_uses(static::class), SoftDeletes::class);
         $classAudits = static::getAudits(static::class);
         
         foreach ($classAudits as $event) {

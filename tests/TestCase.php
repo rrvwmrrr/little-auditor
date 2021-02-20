@@ -39,6 +39,9 @@ class TestCase extends Orchestra
         
         Auditor::$auditorModel = AuditorModel::class;
 
+        include_once __DIR__.'/../database/migrations/create_audits_table.php';
+        (new \CreateAuditsTable())->up();
+
         include_once __DIR__.'/database/migrations/create_test_tables.php';
         (new \CreateTestTables())->up();
     }
