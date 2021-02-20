@@ -4,7 +4,7 @@ namespace Rrvwmrrr\Auditor\Exceptions;
 
 use Exception;
 
-class AuditException extends Exception
+final class AuditException extends Exception
 {
     public static function eventNotCovered(string $event): self
     {

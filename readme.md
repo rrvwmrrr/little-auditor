@@ -34,7 +34,7 @@ in your app config.
 ### Setting up an auditor
 
 The auditor will always attempt to grab the logged in user id and attach that to an audit. 
-The default auditor is mapped to ```App\Model\User``` but can be changed via a service 
+The default auditor is mapped to `App\Models\User` but can be changed via a service 
 provivider if you're authenticating with a different model.
 
 ```php
