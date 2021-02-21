@@ -2,6 +2,11 @@
 
 # Little Auditor
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/rrvwmrrr/little-auditor.svg?style=flat-square)](https://packagist.org/packages/rrvwmrrr/little-auditor)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/rrvwmrrr/little-auditor/run-tests?label=tests)](https://github.com/rrvwmrrr/little-auditor/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/rrvwmrrr/little-auditor/Check%20&%20fix%20styling?label=code%20style)](https://github.com/rrvwmrrr/little-auditor/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/rrvwmrrr/little-auditor.svg?style=flat-square)](https://packagist.org/packages/rrvwmrrr/little-auditor)
+
 Little auditor contains a pair of traits you can apply to your [Eloquent](https://laravel.com/docs/8.x/eloquent) models to allow you to hook in to their events and store the attached data.
 
 ## Should I use this package?
@@ -123,6 +128,12 @@ and any auditable model.
     $order = Order::find(1);
     $order->audits; //  Collection of audits made on the order
 
+```
+
+## Testing
+
+```bash
+composer test
 ```
 
 ## Contributors
